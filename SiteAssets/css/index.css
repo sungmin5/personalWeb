@@ -1,0 +1,13 @@
+/*body for css*/
+body{
+    margin: 0px;
+    height:2000px;
+}
+#global-navigation{
+    height:100px;
+    width:100%;
+    background-color: #fcf3d6;
+    display:flex;
+    position:fixed;
+    transition: top 0.5s;
+}
