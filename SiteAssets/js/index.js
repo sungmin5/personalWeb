@@ -4,8 +4,9 @@ var GLOBAL_NAV_COUNTDOWN = 3000;
 
 $(function(){
     var hideGlobalNavFunc = null;
+
     window.onscroll = function (e){
-        if($('#global-navigation').css('top') == '-55px'){
+        if($('#global-navigation').prop('class').indexOf('hidden') > 0){
             $('#global-navigation').removeClass('glov-nav-hidden').addClass('glov-nav-shown');
         }
         if(hideGlobalNavFunc !== null){
@@ -19,7 +20,9 @@ $(function(){
     $('#global-navigation').hover(function(){
         clearTimeout(hideGlobalNavFunc);
     }, function(){
-        hideGlobalNavFunc = waitAndHideGlobalNav();
+        if(window.pageYOffset > 55){
+            hideGlobalNavFunc = waitAndHideGlobalNav();
+        }
     });
     
 
