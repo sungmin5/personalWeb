@@ -4,10 +4,35 @@ body{
     height:2000px;
 }
 #global-navigation{
-    height:100px;
+    height:55px;
     width:100%;
     background-color: #fcf3d6;
     display:flex;
     position:fixed;
-    transition: top 0.5s;
+    
+}
+.glov-nav-hidden{
+    top: -55px;
+    transition: top 1s;
+}
+.glov-nav-shown{
+    top: 0px;
+    transition: top 1s;
+}
+
+#global-navigation ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+#global-navigation ul li {
+    font-family: sans-serif;
+    font-size: 20px;
 }

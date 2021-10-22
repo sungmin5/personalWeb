@@ -5,32 +5,28 @@ var GLOBAL_NAV_COUNTDOWN = 3000;
 $(function(){
     var hideGlobalNavFunc = null;
     window.onscroll = function (e){
-        if($('#global-navigation').css('top') == '-100px'){
-            $('#global-navigation').css('top', "0px");
+        if($('#global-navigation').css('top') == '-55px'){
+            $('#global-navigation').removeClass('glov-nav-hidden').addClass('glov-nav-shown');
         }
         if(hideGlobalNavFunc !== null){
             clearTimeout(hideGlobalNavFunc);
-            hideGlobalNavFunc = setTimeout(function() {
-                $('#global-navigation').css('top', "-100px");
-            }, GLOBAL_NAV_COUNTDOWN);
-        } else{ 
-            hideGlobalNavFunc = setTimeout(function() {
-                $('#global-navigation').css('top', "-100px");
-            }, GLOBAL_NAV_COUNTDOWN);
+        } 
+        if(window.pageYOffset > 55){
+            hideGlobalNavFunc = waitAndHideGlobalNav();
         }
     };
 
-
     $('#global-navigation').hover(function(){
         clearTimeout(hideGlobalNavFunc);
-        console.log("TEST");
     }, function(){
-        console.log("OUT");
-        hideGlobalNavFunc = setTimeout(function() {
-            $('#global-navigation').css('top', "-100px");
-        }, GLOBAL_NAV_COUNTDOWN);
+        hideGlobalNavFunc = waitAndHideGlobalNav();
     });
     
 
 })
 
+function waitAndHideGlobalNav(){
+    return setTimeout(function() {
+        $('#global-navigation').removeClass('glov-nav-shown').addClass('glov-nav-hidden');
+    }, GLOBAL_NAV_COUNTDOWN);
+}
